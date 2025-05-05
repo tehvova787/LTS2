@@ -1,0 +1,29 @@
+{
+  "name": "voxel-world",
+  "version": "1.0.0",
+  "description": "A voxel-based virtual world similar to Voxels (formerly Cryptovoxels)",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "nodemon server/index.js & webpack serve --mode development",
+    "build": "webpack --mode production"
+  },
+  "dependencies": {
+    "three": "^0.156.1",
+    "express": "^4.18.2",
+    "socket.io": "^4.7.2",
+    "socket.io-client": "^4.7.2",
+    "babylonjs": "^6.18.0",
+    "web3": "^4.1.1",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1",
+    "html-webpack-plugin": "^5.5.3",
+    "css-loader": "^6.8.1",
+    "style-loader": "^3.3.3",
+    "nodemon": "^3.0.1"
+  }
+} 

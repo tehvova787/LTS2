@@ -1,0 +1,5 @@
+pytoncenter>=0.1.0
+pytonlib>=0.1.0
+fastapi>=0.95.0
+pydantic>=1.10.7
+python-dotenv>=1.0.0 

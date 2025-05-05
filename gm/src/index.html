@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Voxel World</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    #game-container {
+      width: 100%;
+      height: 100%;
+    }
+    #ui-overlay {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      color: white;
+      font-family: Arial, sans-serif;
+      z-index: 100;
+    }
+    #color-picker {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      flex-direction: row;
+      z-index: 100;
+    }
+    .color-option {
+      width: 30px;
+      height: 30px;
+      margin: 0 5px;
+      cursor: pointer;
+      border: 2px solid white;
+    }
+    .selected {
+      border: 2px solid yellow;
+    }
+    #controls-help {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      font-family: Arial, sans-serif;
+      z-index: 100;
+    }
+  </style>
+</head>
+<body>
+  <div id="game-container"></div>
+  
+  <div id="ui-overlay">
+    <div id="player-info">
+      <h3>Voxel World</h3>
+      <p id="username">Guest</p>
+      <p id="coordinates">Position: 0, 0, 0</p>
+      <p id="online-players">Players online: 0</p>
+    </div>
+  </div>
+  
+  <div id="controls-help">
+    <h4>Controls:</h4>
+    <p>WASD - Move</p>
+    <p>SPACE - Jump</p>
+    <p>SHIFT - Run</p>
+    <p>C - Toggle camera view</p>
+    <p>F - Toggle fly mode</p>
+    <p>LEFT CLICK - Place voxel</p>
+    <p>RIGHT CLICK - Remove voxel</p>
+    <p>T - Open chat</p>
+  </div>
+  
+  <div id="color-picker">
+    <div class="color-option selected" style="background-color: #ff0000;" data-color="#ff0000"></div>
+    <div class="color-option" style="background-color: #00ff00;" data-color="#00ff00"></div>
+    <div class="color-option" style="background-color: #0000ff;" data-color="#0000ff"></div>
+    <div class="color-option" style="background-color: #ffff00;" data-color="#ffff00"></div>
+    <div class="color-option" style="background-color: #ff00ff;" data-color="#ff00ff"></div>
+    <div class="color-option" style="background-color: #00ffff;" data-color="#00ffff"></div>
+  </div>
+</body>
+</html> 

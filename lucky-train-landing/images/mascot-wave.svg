@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" viewBox="0 0 300 200">
+  <style>
+    .train-body { fill: #4CAF50; }
+    .train-window { fill: #FFEB3B; }
+    .train-detail { fill: #388E3C; }
+    .train-wheel { fill: #212121; }
+    .train-face { fill: #FFFFFF; }
+    .train-eye { fill: #212121; }
+    .train-smile { fill: none; stroke: #212121; stroke-width: 3; stroke-linecap: round; }
+    .train-arm { fill: #388E3C; }
+    .train-hand { fill: #4CAF50; }
+    .train-highlight { fill: #FFFFFF; opacity: 0.3; }
+    
+    @keyframes waveArm {
+      0%, 100% { transform: rotate(-20deg); }
+      50% { transform: rotate(20deg); }
+    }
+    
+    .waving-arm {
+      transform-origin: 80px 100px;
+      animation: waveArm 2s infinite ease-in-out;
+    }
+  </style>
+  
+  <!-- Main Body -->
+  <g transform="translate(85, 50)">
+    <!-- Train Body -->
+    <rect class="train-body" x="0" y="0" width="120" height="80" rx="20" />
+    
+    <!-- Windows -->
+    <circle class="train-window" cx="40" cy="35" r="15" />
+    <circle class="train-window" cx="80" cy="35" r="15" />
+    
+    <!-- Face inside the front window -->
+    <circle class="train-face" cx="80" cy="35" r="12" />
+    <g transform="translate(80, 35)">
+      <!-- Blinking Eyes -->
+      <circle class="train-eye" cx="-6" cy="-2" r="2.5" />
+      <circle class="train-eye" cx="6" cy="-2" r="2.5" />
+      
+      <!-- Big Smile -->
+      <path class="train-smile" d="M-8,5 Q0,10 8,5" />
+    </g>
+    
+    <!-- Bottom Part -->
+    <rect class="train-detail" x="-10" y="75" width="140" height="15" rx="5" />
+    
+    <!-- Wheels -->
+    <circle class="train-wheel" cx="25" cy="90" r="12" />
+    <circle class="train-wheel" cx="95" cy="90" r="12" />
+    <circle fill="#FFFFFF" opacity="0.5" cx="25" cy="90" r="5" />
+    <circle fill="#FFFFFF" opacity="0.5" cx="95" cy="90" r="5" />
+    
+    <!-- Chimney -->
+    <rect class="train-detail" x="20" y="-25" width="15" height="30" rx="4" />
+    <rect class="train-detail" x="15" y="-30" width="25" height="8" rx="4" />
+    
+    <!-- Waving Arm -->
+    <g class="waving-arm">
+      <rect class="train-arm" x="65" y="85" width="60" height="12" rx="6" transform="rotate(-45, 65, 85)" />
+      <circle class="train-hand" cx="110" cy="50" r="10" />
+    </g>
+    
+    <!-- Highlights -->
+    <rect class="train-highlight" x="10" y="10" width="100" height="15" rx="7.5" />
+  </g>
+  
+  <!-- Speech Bubble (Optional) -->
+  <g transform="translate(170, 40)">
+    <path d="M0,25 L15,45 L30,25 Q50,25 50,15 Q50,0 25,0 Q0,0 0,15 Q0,25 0,25 Z" fill="#FFFFFF" stroke="#4CAF50" stroke-width="2" />
+    <text x="25" y="18" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="#4CAF50">Hi!</text>
+  </g>
+</svg> 

@@ -1,0 +1,402 @@
+/* Page specific styles for Lucky Train */
+
+/* z-index styles */
+.canvas-container {
+  z-index: 0;
+}
+
+.hero-section {
+  z-index: 10;
+}
+
+.scroll-indicator {
+  z-index: 10;
+}
+
+.video-section {
+  position: relative;
+  z-index: 5;
+}
+
+.feature-icon-container {
+  z-index: 5;
+}
+
+.glass-container {
+  background-color: rgba(18, 24, 38, 0.85);
+}
+
+/* Position and effects */
+.steam-delay-1 {
+  animation-delay: 0.7s;
+}
+
+.steam-delay-2 {
+  animation-delay: 1.4s;
+}
+
+.steam-delay-3 {
+  animation-delay: 2.1s;
+}
+
+.small-steam-delay-1 {
+  animation-delay: 0.5s;
+}
+
+.small-steam-delay-2 {
+  animation-delay: 1.0s;
+}
+
+/* Stars background */
+.stars-small {
+  background-image: url('/images/stars-small.png');
+  background-repeat: repeat;
+  opacity: 0.5;
+  animation: twinkling 8s linear infinite;
+}
+
+.stars-large {
+  background-image: url('/images/stars-large.png');
+  background-repeat: repeat;
+  opacity: 0.7;
+  animation: twinkling 12s linear infinite;
+}
+
+@keyframes twinkling {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-1000px);
+  }
+}
+
+/* Mechanical elements */
+.gear {
+  position: relative;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #2b3041, #1d2130);
+  border: 2px solid rgba(80, 227, 194, 0.3);
+  box-shadow: 0 0 8px rgba(80, 227, 194, 0.2);
+}
+
+.gear:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40%;
+  height: 40%;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #1d2130, #2b3041);
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(80, 227, 194, 0.4);
+}
+
+.gear:after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: 
+    conic-gradient(
+      from 0deg, 
+      transparent 0deg, 
+      transparent 30deg, 
+      rgba(80, 227, 194, 0.2) 30deg, 
+      rgba(80, 227, 194, 0.2) 45deg, 
+      transparent 45deg, 
+      transparent 75deg,
+      rgba(80, 227, 194, 0.2) 75deg, 
+      rgba(80, 227, 194, 0.2) 90deg, 
+      transparent 90deg, 
+      transparent 120deg,
+      rgba(80, 227, 194, 0.2) 120deg, 
+      rgba(80, 227, 194, 0.2) 135deg, 
+      transparent 135deg, 
+      transparent 165deg,
+      rgba(80, 227, 194, 0.2) 165deg, 
+      rgba(80, 227, 194, 0.2) 180deg, 
+      transparent 180deg, 
+      transparent 210deg,
+      rgba(80, 227, 194, 0.2) 210deg, 
+      rgba(80, 227, 194, 0.2) 225deg, 
+      transparent 225deg, 
+      transparent 255deg,
+      rgba(80, 227, 194, 0.2) 255deg, 
+      rgba(80, 227, 194, 0.2) 270deg, 
+      transparent 270deg, 
+      transparent 300deg,
+      rgba(80, 227, 194, 0.2) 300deg, 
+      rgba(80, 227, 194, 0.2) 315deg, 
+      transparent 315deg, 
+      transparent 345deg,
+      rgba(80, 227, 194, 0.2) 345deg, 
+      rgba(80, 227, 194, 0.2) 360deg
+    );
+}
+
+.gear-large {
+  width: 100%;
+  height: 100%;
+  animation: rotate 20s linear infinite;
+}
+
+.gear-medium {
+  width: 100%;
+  height: 100%;
+  animation: rotate 15s linear infinite reverse;
+}
+
+.gear-small {
+  width: 100%;
+  height: 100%;
+  animation: rotate 10s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.piston {
+  position: relative;
+  height: 100%;
+  background: linear-gradient(90deg, #2b3041, #50e3c2, #2b3041);
+  border-radius: 2px;
+  animation: piston-move 3s ease-in-out infinite;
+}
+
+@keyframes piston-move {
+  0%, 100% {
+    transform: scaleX(0.8);
+  }
+  50% {
+    transform: scaleX(1);
+  }
+}
+
+/* Steam effect */
+.steam-container {
+  position: relative;
+  z-index: 5;
+}
+
+.steam {
+  position: absolute;
+  height: 8px;
+  width: 4px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.4);
+  animation: steam-animation 2s linear infinite;
+}
+
+.steam-delay-1 {
+  animation-delay: 0.2s;
+  left: -2px;
+}
+
+.steam-delay-2 {
+  animation-delay: 0.6s;
+  left: 0px;
+}
+
+.steam-delay-3 {
+  animation-delay: 1s;
+  left: 2px;
+}
+
+.small-steam-delay-1 {
+  animation-delay: 0.3s;
+  animation-duration: 1.5s;
+  left: -1px;
+}
+
+.small-steam-delay-2 {
+  animation-delay: 0.9s;
+  animation-duration: 1.2s;
+  left: 1px;
+}
+
+@keyframes steam-animation {
+  0% {
+    opacity: 0.3;
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-15px) scale(2);
+  }
+}
+
+/* Energy flow effect */
+.energy-flow {
+  background-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(80, 227, 194, 0.2) 10%,
+    rgba(80, 227, 194, 0) 20%,
+    rgba(80, 227, 194, 0.2) 30%,
+    rgba(80, 227, 194, 0) 40%,
+    rgba(80, 227, 194, 0.2) 50%,
+    rgba(80, 227, 194, 0) 60%,
+    rgba(80, 227, 194, 0.2) 70%,
+    rgba(80, 227, 194, 0) 80%,
+    rgba(80, 227, 194, 0.2) 90%,
+    transparent 100%
+  );
+  background-size: 100% 200%;
+  animation: energy-flow 10s linear infinite;
+}
+
+@keyframes energy-flow {
+  0% {
+    background-position: 0 0%;
+  }
+  100% {
+    background-position: 0 200%;
+  }
+}
+
+/* Quantum particles effect */
+.quantum-particles {
+  position: relative;
+  overflow: hidden;
+}
+
+.quantum-particles::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(circle at center, rgba(80, 227, 194, 0.2) 0%, transparent 70%);
+  background-size: 15px 15px;
+  animation: quantum-pulse 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes quantum-pulse {
+  0%, 100% {
+    opacity: 0.1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+/* Track design */
+.track {
+  position: relative;
+  background: rgba(80, 227, 194, 0.2);
+  border-radius: 1px;
+  box-shadow: 0 0 8px rgba(80, 227, 194, 0.3);
+  overflow: hidden;
+}
+
+.track::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg, 
+    transparent, 
+    rgba(80, 227, 194, 0.5), 
+    transparent
+  );
+  animation: track-light 4s linear infinite;
+}
+
+@keyframes track-light {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 200%;
+  }
+}
+
+/* Mechanical card */
+.mechanical-card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.glass {
+  position: relative;
+  background: rgba(26, 32, 44, 0.7);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.glass::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(80, 227, 194, 0.4),
+    transparent
+  );
+}
+
+.glass::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(238, 130, 238, 0.4),
+    transparent
+  );
+}
+
+/* Animations */
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+} 

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="60" viewBox="0 0 200 60">
+  <style>
+    .train-text { font: bold 24px 'Montserrat', sans-serif; fill: #4CAF50; }
+    .lucky-text { font: bold 24px 'Montserrat', sans-serif; fill: #212121; }
+    .train-icon { fill: #4CAF50; }
+    .train-window { fill: #FFC107; }
+    .train-wheel { fill: #212121; }
+  </style>
+  
+  <!-- Train Icon -->
+  <g transform="translate(10, 20)">
+    <rect class="train-icon" x="5" y="0" width="40" height="20" rx="3" />
+    <rect class="train-window" x="10" y="5" width="8" height="8" rx="2" />
+    <rect class="train-window" x="25" y="5" width="8" height="8" rx="2" />
+    <rect class="train-icon" x="0" y="15" width="50" height="10" rx="2" />
+    <circle class="train-wheel" cx="10" cy="25" r="5" />
+    <circle class="train-wheel" cx="40" cy="25" r="5" />
+  </g>
+  
+  <!-- Text -->
+  <text x="70" y="30">
+    <tspan class="lucky-text">Lucky</tspan>
+    <tspan class="train-text" dx="5">Train</tspan>
+  </text>
+  
+  <!-- Tagline -->
+  <text x="70" y="45" font-size="12" fill="#9E9E9E">Путешествие к прибыли</text>
+</svg> 

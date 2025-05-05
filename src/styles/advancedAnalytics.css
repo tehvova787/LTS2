@@ -1,0 +1,47 @@
+/* Advanced Analytics Styles */
+
+.analytics-card {
+  background-color: white;
+}
+
+.analytics-title {
+  color: black;
+  font-weight: bold;
+}
+
+.analytics-text {
+  color: black;
+}
+
+.analytics-bold-text {
+  color: black;
+  font-weight: bold;
+}
+
+.analytics-chart-bar {
+  background: linear-gradient(to top, #d1d5db, #6b7280);
+}
+
+.analytics-recommendation-card {
+  background-color: #f8f8f8;
+}
+
+.analytics-ai-avatar {
+  background-color: #e0e0e0;
+}
+
+.analytics-progress-bg {
+  background-color: #e0e0e0;
+}
+
+.analytics-progress-fill {
+  background-color: #606060;
+}
+
+.analytics-chart-container {
+  height: 100%;
+}
+
+.analytics-market-bar {
+  background: linear-gradient(to top, rgba(64, 224, 208, 0.5), rgba(255, 0, 128, 0.5));
+} 

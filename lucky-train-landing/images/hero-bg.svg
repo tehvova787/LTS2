@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="300" viewBox="0 0 1920 300">
+  <defs>
+    <linearGradient id="skyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#A5D6A7" stop-opacity="0.1" />
+      <stop offset="100%" stop-color="#4CAF50" stop-opacity="0.3" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1920" height="300" fill="url(#skyGradient)" />
+  
+  <!-- Moon -->
+  <circle cx="1700" cy="100" r="60" fill="#FFC107" />
+  <circle cx="1680" cy="90" r="20" fill="#FFECB3" opacity="0.7" />
+  
+  <!-- Hills -->
+  <path d="M0,300 C200,200 400,250 600,220 C800,190 1000,240 1200,200 C1400,160 1600,210 1800,180 C1900,165 1920,180 1920,180 L1920,300 L0,300 Z" fill="#4CAF50" opacity="0.3" />
+  <path d="M0,300 C150,240 300,260 450,240 C600,220 750,250 900,230 C1050,210 1200,240 1350,220 C1500,200 1650,230 1800,210 C1850,200 1900,210 1920,220 L1920,300 L0,300 Z" fill="#388E3C" opacity="0.3" />
+  
+  <!-- Railway Tracks -->
+  <line x1="0" y1="280" x2="1920" y2="280" stroke="#212121" stroke-width="4" />
+  <line x1="0" y1="290" x2="1920" y2="290" stroke="#212121" stroke-width="4" />
+  
+  <!-- Railway Ties -->
+  <g stroke="#5D4037" stroke-width="8">
+    <line x1="50" y1="275" x2="50" y2="295" />
+    <line x1="150" y1="275" x2="150" y2="295" />
+    <line x1="250" y1="275" x2="250" y2="295" />
+    <line x1="350" y1="275" x2="350" y2="295" />
+    <line x1="450" y1="275" x2="450" y2="295" />
+    <line x1="550" y1="275" x2="550" y2="295" />
+    <line x1="650" y1="275" x2="650" y2="295" />
+    <line x1="750" y1="275" x2="750" y2="295" />
+    <line x1="850" y1="275" x2="850" y2="295" />
+    <line x1="950" y1="275" x2="950" y2="295" />
+    <line x1="1050" y1="275" x2="1050" y2="295" />
+    <line x1="1150" y1="275" x2="1150" y2="295" />
+    <line x1="1250" y1="275" x2="1250" y2="295" />
+    <line x1="1350" y1="275" x2="1350" y2="295" />
+    <line x1="1450" y1="275" x2="1450" y2="295" />
+    <line x1="1550" y1="275" x2="1550" y2="295" />
+    <line x1="1650" y1="275" x2="1650" y2="295" />
+    <line x1="1750" y1="275" x2="1750" y2="295" />
+    <line x1="1850" y1="275" x2="1850" y2="295" />
+  </g>
+  
+  <!-- Distant Stars -->
+  <g fill="#FFFFFF">
+    <circle cx="200" cy="50" r="2" />
+    <circle cx="400" cy="30" r="1" />
+    <circle cx="600" cy="70" r="2" />
+    <circle cx="800" cy="40" r="1" />
+    <circle cx="1000" cy="60" r="2" />
+    <circle cx="1200" cy="20" r="1" />
+    <circle cx="1400" cy="80" r="2" />
+    <circle cx="1600" cy="30" r="1" />
+  </g>
+</svg> 

@@ -1,0 +1,1 @@
+# Module for TON blockchain integration with metaverse 

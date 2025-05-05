@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <style>
+    .train-body { fill: #4CAF50; }
+    .train-window { fill: #FFC107; }
+    .train-detail { fill: #388E3C; }
+    .train-wheel { fill: #212121; }
+    .train-face { fill: #FFFFFF; }
+    .train-eye { fill: #212121; }
+    .train-smile { fill: none; stroke: #212121; stroke-width: 3; stroke-linecap: round; }
+    .train-arm { fill: #388E3C; }
+    .train-hand { fill: #4CAF50; }
+    .smoke { fill: #E0E0E0; opacity: 0.8; }
+    .train-highlight { fill: #FFFFFF; opacity: 0.3; }
+  </style>
+
+  <!-- Smoke clouds -->
+  <g class="smoke-group">
+    <circle class="smoke" cx="60" cy="120" r="25" />
+    <circle class="smoke" cx="90" cy="100" r="20" />
+    <circle class="smoke" cx="120" cy="110" r="30" />
+  </g>
+
+  <!-- Train Body -->
+  <g transform="translate(100, 150)">
+    <!-- Main body -->
+    <rect class="train-body" x="0" y="0" width="200" height="100" rx="20" />
+    
+    <!-- Front detail -->
+    <rect class="train-detail" x="180" y="20" width="40" height="60" rx="10" />
+    
+    <!-- Windows -->
+    <circle class="train-window" cx="50" cy="40" r="20" />
+    <circle class="train-window" cx="110" cy="40" r="20" />
+    
+    <!-- Face inside the front window -->
+    <circle class="train-face" cx="110" cy="40" r="15" />
+    <circle class="train-eye" cx="103" cy="35" r="3" />
+    <circle class="train-eye" cx="117" cy="35" r="3" />
+    <path class="train-smile" d="M100,45 Q110,55 120,45" />
+    
+    <!-- Bottom detail -->
+    <rect class="train-detail" x="-10" y="90" width="220" height="20" rx="5" />
+    
+    <!-- Wheels -->
+    <circle class="train-wheel" cx="40" cy="120" r="20" />
+    <circle class="train-wheel" cx="160" cy="120" r="20" />
+    
+    <!-- Wheel details -->
+    <circle fill="#FFC107" cx="40" cy="120" r="10" />
+    <circle fill="#FFC107" cx="160" cy="120" r="10" />
+    
+    <!-- Chimney -->
+    <rect class="train-detail" x="30" y="-30" width="20" height="40" rx="5" />
+    <rect class="train-detail" x="25" y="-40" width="30" height="10" rx="5" />
+    
+    <!-- Arms and hands - waving -->
+    <g class="right-arm">
+      <rect class="train-arm" x="190" y="50" width="40" height="15" rx="7" transform="rotate(-30, 190, 50)" />
+      <circle class="train-hand" cx="225" cy="30" r="12" />
+    </g>
+    
+    <!-- Highlights -->
+    <rect class="train-highlight" x="10" y="10" width="180" height="20" rx="10" />
+  </g>
+  
+  <!-- Coins falling around -->
+  <circle fill="#FFC107" cx="300" cy="80" r="15" stroke="#F57F17" stroke-width="2" />
+  <circle fill="#FFC107" cx="340" cy="150" r="15" stroke="#F57F17" stroke-width="2" />
+  <circle fill="#FFC107" cx="280" cy="220" r="15" stroke="#F57F17" stroke-width="2" />
+  
+  <!-- Dollar signs on coins -->
+  <text x="300" y="85" font-size="20" font-weight="bold" text-anchor="middle" fill="#F57F17">$</text>
+  <text x="340" y="155" font-size="20" font-weight="bold" text-anchor="middle" fill="#F57F17">$</text>
+  <text x="280" y="225" font-size="20" font-weight="bold" text-anchor="middle" fill="#F57F17">$</text>
+</svg> 

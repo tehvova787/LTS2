@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucky Train - Futuristic Railway Interface</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #0078FF;
+            --primary-gold: #FFD700;
+            --primary-green: #00FF9D;
+            --primary-orange: #FF7A00;
+            --turquoise: #00F0FF;
+            --neon-pink: #FF00BA;
+            --space-dark: #0A0F25;
+            --space-blue: #1A237E;
+            --neon-blue: #00F5FF;
+            --neon-purple: #9D00FF;
+            --foreground-rgb: 0, 0, 0;
+            --background-start-rgb: 10, 15, 37;
+            --background-end-rgb: 26, 35, 126;
+            --font-inter: 'Inter', sans-serif;
+            --font-orbitron: 'Orbitron', sans-serif;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            font-family: var(--font-inter);
+            color: rgb(var(--foreground-rgb));
+            background: linear-gradient(
+                to bottom,
+                var(--space-dark),
+                var(--space-blue)
+            );
+            background-attachment: fixed;
+            min-height: 100vh;
+            position: relative;
+        }
+        
+        /* Apply Orbitron font to headings */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-orbitron);
+            letter-spacing: 0.02em;
+        }
+        
+        /* Animation Keyframes */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.05); }
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        @keyframes rotate-reverse {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(-360deg); }
+        }
+        
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 15px 0px rgba(0, 240, 255, 0.7); }
+            50% { box-shadow: 0 0 25px 5px rgba(255, 0, 186, 0.9); }
+        }
+        
+        @keyframes pistons {
+            0%, 100% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+        }
+        
+        @keyframes pistonsY {
+            0%, 100% { transform: translateY(-3px); }
+            50% { transform: translateY(3px); }
+        }
+        
+        @keyframes wheels {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        @keyframes steam {
+            0% { transform: translateY(0) scale(1); opacity: 0.8; }
+            100% { transform: translateY(-20px) scale(2); opacity: 0; }
+        }
+        
+        @keyframes rails {
+            from { background-position: 0 0; }
+            to { background-position: 100px 0; }
+        }
+        
+        @keyframes railsY {
+            from { background-position: 0 0; }
+            to { background-position: 0 100px; }
+        }
+        
+        @keyframes hologramShine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            50% { opacity: 0.5; }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+        
+        @keyframes quantum-float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+        
+        @keyframes energyFlow {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        @keyframes trackLight {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+        
+        @keyframes twinkle {
+            from { background-position: 0 0; }
+            to { background-position: 100% 100%; }
+        }
+        
+        /* Effects and Visual Elements */
+        .animate-float { animation: float 3s ease-in-out infinite; }
+        .animate-pulse { animation: pulse 3s ease-in-out infinite; }
+        .animate-rotate { animation: rotate 10s linear infinite; }
+        .animate-rotate-reverse { animation: rotate-reverse 7s linear infinite; }
+        .animate-glow { animation: glow 3s ease-in-out infinite; }
+        .animate-pistons { animation: pistons 1s linear infinite; }
+        .animate-pistons-y { animation: pistonsY 1.2s linear infinite; }
+        .animate-wheels { animation: wheels 2s linear infinite; }
+        .animate-steam { animation: steam 2s ease-in-out infinite; }
+        
+        .text-gradient {
+            background: linear-gradient(90deg, var(--turquoise) 0%, var(--neon-pink) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+        
+        /* Railway Interface specific styles */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('/images/stars-small.png');
+            background-repeat: repeat;
+            animation: twinkle 10s linear infinite;
+            z-index: -2;
+        }
+        
+        .quantum-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        
+        .quantum-particles::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle, rgba(0, 240, 255, 0.4) 1px, transparent 1px),
+                radial-gradient(circle, rgba(255, 0, 186, 0.3) 1px, transparent 1px);
+            background-size: 40px 40px, 30px 30px;
+            background-position: 0 0, 20px 20px;
+            animation: quantum-float 8s linear infinite;
+            pointer-events: none;
+        }
+        
+        /* Mechanical elements */
+        .gear {
+            position: absolute;
+            border-radius: 50%;
+            border: 4px dashed var(--turquoise);
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.5);
+        }
+        
+        .gear::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40%;
+            height: 40%;
+            background-color: var(--turquoise);
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.8);
+        }
+        
+        .gear-large {
+            width: 100px;
+            height: 100px;
+            animation: rotate 15s linear infinite;
+        }
+        
+        .gear-medium {
+            width: 70px;
+            height: 70px;
+            animation: rotate-reverse 10s linear infinite;
+        }
+        
+        .gear-small {
+            width: 40px;
+            height: 40px;
+            animation: rotate 5s linear infinite;
+        }
+        
+        .piston {
+            position: absolute;
+            height: 20px;
+            background: linear-gradient(90deg, #888, #eee, #888);
+            border-radius: 4px;
+            animation: pistons 1s linear infinite;
+        }
+        
+        .piston-vertical {
+            position: absolute;
+            width: 20px;
+            height: 60px;
+            background: linear-gradient(180deg, #888, #eee, #888);
+            border-radius: 4px;
+            animation: pistonsY 1.2s linear infinite;
+        }
+        
+        .track {
+            position: absolute;
+            height: 2px;
+            background: linear-gradient(90deg, var(--turquoise), var(--neon-pink));
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+        }
+        
+        .track-horizontal {
+            left: 0;
+            right: 0;
+            background: repeating-linear-gradient(
+                90deg,
+                rgba(0, 240, 255, 0.5),
+                rgba(0, 240, 255, 0.5) 10px,
+                rgba(0, 0, 0, 0) 10px,
+                rgba(0, 0, 0, 0) 20px
+            );
+            animation: rails 2s linear infinite;
+        }
+        
+        .track-vertical {
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: repeating-linear-gradient(
+                180deg,
+                rgba(0, 240, 255, 0.5),
+                rgba(0, 240, 255, 0.5) 10px,
+                rgba(0, 0, 0, 0) 10px,
+                rgba(0, 0, 0, 0) 20px
+            );
+            animation: railsY 2s linear infinite;
+        }
+        
+        .wheel {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 5px solid var(--neon-blue);
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.8);
+            animation: wheels 3s linear infinite;
+        }
+        
+        .wheel::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40%;
+            height: 40%;
+            background-color: var(--neon-pink);
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(255, 0, 186, 0.8);
+        }
+        
+        .wheel::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            height: 100%;
+            width: 5px;
+            background-color: var(--neon-blue);
+            transform: translateX(-50%);
+        }
+        
+        .steam {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.7);
+            filter: blur(5px);
+            animation: steam 2s ease-out infinite;
+        }
+        
+        /* Header styles */
+        .railway-header {
+            position: relative;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(0, 240, 255, 0.3);
+        }
+        
+        .railway-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-container {
+            position: relative;
+        }
+        
+        .logo-container h1 {
+            font-size: 28px;
+            margin: 0;
+        }
+        
+        .steam-container {
+            position: absolute;
+            top: -15px;
+            left: 0;
+        }
+        
+        .railway-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+        
+        .nav-link {
+            color: #000000;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--turquoise), var(--neon-pink));
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: white;
+            background: rgba(0, 240, 255, 0.1);
+        }
+        
+        .nav-link:hover::before {
+            left: 0;
+        }
+        
+        /* Main section styles */
+        .railway-interface {
+            padding: 30px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 32px;
+            color: #000000;
+            text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+        }
+        
+        /* Dashboard grid */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        /* Panel styles */
+        .control-panel, .system-status, .mech-visualization, .system-details {
+            background: rgba(10, 15, 37, 0.7);
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.1);
+        }
+        
+        .panel-header {
+            background: linear-gradient(90deg, rgba(0, 240, 255, 0.2), rgba(255, 0, 186, 0.2));
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(0, 240, 255, 0.3);
+        }
+        
+        .panel-header h3 {
+            margin: 0;
+            font-size: 18px;
+            color: black;
+        }
+        
+        .status-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--primary-green);
+            box-shadow: 0 0 10px rgba(0, 255, 157, 0.7);
+        }
+        
+        .status-indicator.active {
+            background-color: var(--primary-green);
+        }
+        
+        .status-indicator.warning {
+            background-color: var(--primary-orange);
+        }
+        
+        .status-indicator.error {
+            background-color: var(--neon-pink);
+        }
+        
+        .panel-content {
+            padding: 20px;
+            position: relative;
+        }
+        
+        /* Control panel specific */
+        .mechanical-container {
+            height: 200px;
+            position: relative;
+            margin-bottom: 20px;
+            border: 1px solid rgba(0, 240, 255, 0.2);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .control-interface {
+            position: relative;
+        }
+        
+        .control-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .gauge-container {
+            flex: 1;
+        }
+        
+        .gauge {
+            height: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 5px;
+        }
+        
+        .gauge-value {
+            height: 100%;
+            background: linear-gradient(90deg, var(--turquoise), var(--neon-pink));
+            border-radius: 10px;
+        }
+        
+        .gauge-label {
+            font-size: 14px;
+            color: #000000;
+        }
+        
+        .throttle-container {
+            width: 100%;
+        }
+        
+        .throttle-container label {
+            display: block;
+            margin-bottom: 10px;
+            color: #000000;
+        }
+        
+        .throttle-slider {
+            width: 100%;
+            -webkit-appearance: none;
+            appearance: none;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            outline: none;
+            margin-bottom: 10px;
+        }
+        
+        .throttle-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--neon-pink);
+            box-shadow: 0 0 10px rgba(255, 0, 186, 0.7);
+            cursor: pointer;
+        }
+        
+        .throttle-value {
+            text-align: center;
+            font-size: 18px;
+            color: black;
+            font-weight: bold;
+        }
+        
+        .track-animation {
+            position: relative;
+            height: 100px;
+            border: 1px solid rgba(0, 240, 255, 0.2);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+        
+        /* System status panel */
+        .status-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            padding: 20px;
+        }
+        
+        .status-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 6px;
+        }
+        
+        .status-icon {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+        }
+        
+        .status-icon.active {
+            background-color: var(--primary-green);
+            box-shadow: 0 0 10px rgba(0, 255, 157, 0.5);
+        }
+        
+        .status-icon.warning {
+            background-color: var(--primary-orange);
+            box-shadow: 0 0 10px rgba(255, 122, 0, 0.5);
+        }
+        
+        .status-icon.error {
+            background-color: var(--neon-pink);
+            box-shadow: 0 0 10px rgba(255, 0, 186, 0.5);
+        }
+        
+        /* Mechanical visualization */
+        .train-animation {
+            height: 200px;
+            position: relative;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+        
+        .locomotive {
+            position: relative;
+            width: 200px;
+            height: 100px;
+            margin-bottom: 20px;
+        }
+        
+        .locomotive-body {
+            position: absolute;
+            bottom: 0;
+            left: 30px;
+            width: 140px;
+            height: 40px;
+            background-color: #1e3a8a;
+            border-radius: 5px;
+        }
+        
+        .locomotive-boiler {
+            position: absolute;
+            bottom: 40px;
+            left: 50px;
+            width: 100px;
+            height: 30px;
+            background-color: #1e3a8a;
+            border-radius: 15px 15px 0 0;
+        }
+        
+        .locomotive-cabin {
+            position: absolute;
+            bottom: 40px;
+            left: 30px;
+            width: 40px;
+            height: 35px;
+            background-color: #0f172a;
+            border-radius: 5px 0 0 0;
+        }
+        
+        .locomotive-chimney {
+            position: absolute;
+            bottom: 70px;
+            left: 130px;
+            width: 15px;
+            height: 20px;
+            background-color: #0f172a;
+            border-radius: 5px 5px 0 0;
+        }
+        
+        .locomotive-wheel {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #334155;
+            border: 3px solid #475569;
+            bottom: -15px;
+        }
+        
+        .wheel1 { left: 40px; }
+        .wheel2 { left: 80px; }
+        .wheel3 { left: 120px; }
+        
+        .connecting-rod {
+            position: absolute;
+            width: 80px;
+            height: 5px;
+            background-color: #64748b;
+            bottom: -5px;
+            left: 40px;
+        }
+        
+        .piston-rod {
+            position: absolute;
+            width: 40px;
+            height: 5px;
+            background-color: #94a3b8;
+            bottom: 10px;
+            left: 120px;
+        }
+        
+        .piston-box {
+            position: absolute;
+            width: 20px;
+            height: 15px;
+            background-color: #334155;
+            bottom: 5px;
+            left: 140px;
+            border-radius: 3px;
+        }
+        
+        .track-base {
+            position: relative;
+            height: 10px;
+        }
+        
+        .track-line {
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: var(--turquoise);
+            bottom: 5px;
+        }
+        
+        .track-sleepers {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 3px;
+            height: 4px;
+            background: repeating-linear-gradient(
+                90deg,
+                var(--primary-gold),
+                var(--primary-gold) 10px,
+                transparent 10px,
+                transparent 25px
+            );
+        }
+        
+        /* System details panel */
+        .details-content {
+            padding: 20px;
+            position: relative;
+        }
+        
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(0, 240, 255, 0.1);
+        }
+        
+        .detail-label {
+            color: #000000;
+        }
+        
+        .detail-value {
+            color: black;
+            font-weight: bold;
+        }
+        
+        .detail-indicator {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--turquoise) 0%, var(--neon-pink) 100%);
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.7);
+        }
+        
+        /* Bottom track */
+        .bottom-tracks {
+            position: relative;
+            height: 20px;
+            margin-top: 20px;
+        }
+        
+        .track-dots {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 5px;
+        }
+        
+        .track-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--primary-gold);
+            animation: trackLight 2s infinite alternate;
+        }
+        
+        /* Steam effects with different delays */
+        .steam-delay-0 {
+            animation-delay: 0s;
+        }
+        .steam-delay-05 {
+            animation-delay: 0.5s;
+        }
+        .steam-delay-07 {
+            animation-delay: 0.7s;
+        }
+        .steam-delay-1 {
+            animation-delay: 1s;
+        }
+        .steam-delay-14 {
+            animation-delay: 1.4s;
+        }
+        
+        /* Positioning helpers */
+        .steam-left-20 {
+            left: 20px;
+        }
+        .steam-left-35 {
+            left: 35px;
+        }
+        .steam-left-50 {
+            left: 50px;
+        }
+        
+        /* Track positioning helpers */
+        .track-top {
+            top: 0;
+        }
+        .track-bottom {
+            bottom: 0;
+        }
+        .track-left {
+            left: 0;
+        }
+        .track-right {
+            right: 0;
+        }
+        
+        /* Gear positioning helpers */
+        .gear-top-right {
+            top: 20px;
+            right: 30px;
+        }
+        .gear-bottom-left {
+            bottom: 40px;
+            left: 20px;
+        }
+        .gear-bottom-right {
+            bottom: 20px;
+            right: 20px;
+        }
+        
+        /* Piston positioning helpers */
+        .piston-center {
+            width: 120px;
+            top: 60px;
+            left: 50%;
+        }
+        .piston-bottom-right {
+            bottom: 40px;
+            right: 60px;
+        }
+        
+        /* Wheel positioning helpers */
+        .wheel-left {
+            top: 150px;
+            left: 80px;
+        }
+        .wheel-right {
+            top: 150px;
+            right: 80px;
+        }
+        
+        /* Steam container positioning */
+        .steam-container-center {
+            top: 50px;
+            left: 40%;
+        }
+        
+        /* Additional styles for gauge values */
+        .gauge-value-power {
+            width: 75%;
+        }
+        
+        .gauge-value-steam {
+            width: 60%;
+        }
+    </style>
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="quantum-particles"></div>
+    
+    <header class="railway-header">
+        <div class="container">
+            <div class="logo-container">
+                <h1 class="text-gradient">Lucky Train</h1>
+                <div class="steam-container">
+                    <div class="steam steam-delay-0 steam-left-20"></div>
+                    <div class="steam steam-delay-05 steam-left-35"></div>
+                    <div class="steam steam-delay-1 steam-left-50"></div>
+                </div>
+            </div>
+            <nav class="railway-nav">
+                <ul>
+                    <li><a href="#" class="nav-link">Dashboard</a></li>
+                    <li><a href="#" class="nav-link">Systems</a></li>
+                    <li><a href="#" class="nav-link">Controls</a></li>
+                    <li><a href="#" class="nav-link">Mechanics</a></li>
+                </ul>
+            </nav>
+        </div>
+        
+        <!-- Track elements for header -->
+        <div class="track track-horizontal track-top"></div>
+        <div class="track track-horizontal track-bottom"></div>
+    </header>
+    
+    <main class="railway-interface">
+        <div class="container">
+            <section class="dashboard-section">
+                <h2 class="section-title">Railway Control System</h2>
+                
+                <div class="dashboard-grid">
+                    <!-- Main control panel -->
+                    <div class="control-panel">
+                        <div class="panel-header">
+                            <h3>Main Engine Control</h3>
+                            <div class="status-indicator active"></div>
+                        </div>
+                        
+                        <div class="panel-content">
+                            <!-- Mechanical elements -->
+                            <div class="mechanical-container">
+                                <div class="gear gear-large gear-top-right"></div>
+                                <div class="gear gear-medium gear-bottom-left"></div>
+                                <div class="piston piston-center"></div>
+                                <div class="piston-vertical piston-bottom-right"></div>
+                                
+                                <div class="wheel wheel-left"></div>
+                                <div class="wheel wheel-right"></div>
+                                
+                                <!-- Steam effects -->
+                                <div class="steam-container steam-container-center">
+                                    <div class="steam steam-delay-0"></div>
+                                    <div class="steam steam-delay-07"></div>
+                                    <div class="steam steam-delay-14"></div>
+                                </div>
+                            </div>
+                            
+                            <!-- Control interface -->
+                            <div class="control-interface">
+                                <div class="control-row">
+                                    <div class="gauge-container">
+                                        <div class="gauge">
+                                            <div class="gauge-value gauge-value-power"></div>
+                                        </div>
+                                        <span class="gauge-label">Power Output</span>
+                                    </div>
+                                    
+                                    <div class="gauge-container">
+                                        <div class="gauge">
+                                            <div class="gauge-value gauge-value-steam"></div>
+                                        </div>
+                                        <span class="gauge-label">Steam Pressure</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="control-row">
+                                    <div class="throttle-container">
+                                        <label>Engine Throttle</label>
+                                        <input type="range" min="0" max="100" value="75" class="throttle-slider" title="Engine Throttle Slider">
+                                        <div class="throttle-value">75%</div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Animated track -->
+                                <div class="track-animation">
+                                    <div class="track track-horizontal track-top"></div>
+                                    <div class="track track-horizontal track-bottom"></div>
+                                    <div class="track track-vertical track-left"></div>
+                                    <div class="track track-vertical track-right"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- System status panel -->
+                    <div class="system-status">
+                        <div class="panel-header">
+                            <h3>System Status</h3>
+                            <div class="status-indicator active"></div>
+                        </div>
+                        
+                        <div class="status-grid">
+                            <div class="status-item">
+                                <div class="status-icon active"></div>
+                                <span>Engine</span>
+                            </div>
+                            <div class="status-item">
+                                <div class="status-icon active"></div>
+                                <span>Hydraulics</span>
+                            </div>
+                            <div class="status-item">
+                                <div class="status-icon active"></div>
+                                <span>Cooling</span>
+                            </div>
+                            <div class="status-item">
+                                <div class="status-icon active"></div>
+                                <span>Power</span>
+                            </div>
+                            <div class="status-item">
+                                <div class="status-icon warning"></div>
+                                <span>Fuel</span>
+                            </div>
+                            <div class="status-item">
+                                <div class="status-icon active"></div>
+                                <span>Brakes</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Mechanical elements -->
+                        <div class="gear gear-small gear-bottom-right"></div>
+                    </div>
+                    
+                    <!-- Mechanical visualization panel -->
+                    <div class="mech-visualization">
+                        <div class="panel-header">
+                            <h3>Mechanical Visualization</h3>
+                            <div class="status-indicator active"></div>
+                        </div>
+                        
+                        <div class="train-animation">
+                            <!-- Locomotive body -->
+                            <div class="locomotive">
+                                <div class="locomotive-body"></div>
+                                <div class="locomotive-boiler"></div>
+                                <div class="locomotive-cabin"></div>
+                                <div class="locomotive-chimney">
+                                    <div class="steam steam-delay-0"></div>
+                                    <div class="steam steam-delay-05"></div>
+                                    <div class="steam steam-delay-1"></div>
+                                </div>
+                                
+                                <!-- Wheels -->
+                                <div class="wheel-container">
+                                    <div class="locomotive-wheel wheel1 animate-wheels"></div>
+                                    <div class="locomotive-wheel wheel2 animate-wheels"></div>
+                                    <div class="locomotive-wheel wheel3 animate-wheels"></div>
+                                </div>
+                                
+                                <!-- Connecting rods and pistons -->
+                                <div class="rod-container">
+                                    <div class="connecting-rod animate-pistons"></div>
+                                    <div class="piston-rod animate-pistons"></div>
+                                    <div class="piston-box"></div>
+                                </div>
+                            </div>
+                            
+                            <!-- Tracks -->
+                            <div class="track-base">
+                                <div class="track-line"></div>
+                                <div class="track-sleepers"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- System details panel -->
+                    <div class="system-details">
+                        <div class="panel-header">
+                            <h3>System Details</h3>
+                            <div class="status-indicator active"></div>
+                        </div>
+                        
+                        <div class="details-content">
+                            <div class="detail-row">
+                                <span class="detail-label">Engine Type:</span>
+                                <span class="detail-value">Quantum Steam Turbine</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Power Output:</span>
+                                <span class="detail-value">4,500 kW</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Max Speed:</span>
+                                <span class="detail-value">320 km/h</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Efficiency:</span>
+                                <span class="detail-value">97.3%</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Control System:</span>
+                                <span class="detail-value">Neural Adaptive</span>
+                            </div>
+                            
+                            <!-- Pulsing element -->
+                            <div class="detail-indicator animate-pulse"></div>
+                        </div>
+                        
+                        <!-- Gear decoration -->
+                        <div class="gear gear-small gear-bottom-right"></div>
+                    </div>
+                </div>
+                
+                <!-- Add bottom track decoration -->
+                <div class="bottom-tracks">
+                    <div class="track track-horizontal"></div>
+                    <div class="track-dots">
+                        <div class="track-dot"></div>
+                        <div class="track-dot"></div>
+                        <div class="track-dot"></div>
+                        <div class="track-dot"></div>
+                        <div class="track-dot"></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Throttle slider interaction
+            const throttleSlider = document.querySelector('.throttle-slider');
+            const throttleValue = document.querySelector('.throttle-value');
+            
+            if (throttleSlider && throttleValue) {
+                throttleSlider.addEventListener('input', function() {
+                    throttleValue.textContent = this.value + '%';
+                    
+                    // Adjust animation speeds based on throttle value
+                    const throttlePercent = parseInt(this.value) / 100;
+                    updateAnimationSpeeds(throttlePercent);
+                });
+            }
+            
+            // Function to update animation speeds based on throttle value
+            function updateAnimationSpeeds(throttlePercent) {
+                // Adjust wheel rotation speed
+                const wheels = document.querySelectorAll('.locomotive-wheel, .wheel');
+                wheels.forEach(wheel => {
+                    const baseSpeed = 3; // Base rotation time in seconds
+                    const newSpeed = Math.max(0.5, baseSpeed - (baseSpeed * throttlePercent * 0.7));
+                    wheel.style.animationDuration = newSpeed + 's';
+                });
+                
+                // Adjust piston movement speed
+                const pistons = document.querySelectorAll('.piston, .piston-vertical, .connecting-rod, .piston-rod');
+                pistons.forEach(piston => {
+                    const baseSpeed = 1; // Base piston time in seconds
+                    const newSpeed = Math.max(0.3, baseSpeed - (baseSpeed * throttlePercent * 0.7));
+                    piston.style.animationDuration = newSpeed + 's';
+                });
+                
+                // Adjust steam rate
+                const steamElements = document.querySelectorAll('.steam');
+                steamElements.forEach(steam => {
+                    const baseSpeed = 2; // Base steam time in seconds
+                    const newSpeed = Math.max(0.5, baseSpeed - (baseSpeed * throttlePercent * 0.7));
+                    steam.style.animationDuration = newSpeed + 's';
+                });
+                
+                // Adjust track animation speed
+                const tracks = document.querySelectorAll('.track-horizontal, .track-vertical');
+                tracks.forEach(track => {
+                    const baseSpeed = 2; // Base track time in seconds
+                    const newSpeed = Math.max(0.5, baseSpeed - (baseSpeed * throttlePercent * 0.7));
+                    track.style.animationDuration = newSpeed + 's';
+                });
+            }
+            
+            // Add dynamic steam generation
+            function createSteam() {
+                const steamContainers = document.querySelectorAll('.steam-container');
+                
+                steamContainers.forEach(container => {
+                    // Create a new steam particle
+                    const steam = document.createElement('div');
+                    steam.classList.add('steam');
+                    
+                    // Randomize position
+                    steam.style.left = Math.random() * 20 + 'px';
+                    
+                    // Add to container
+                    container.appendChild(steam);
+                    
+                    // Remove after animation completes
+                    setTimeout(() => {
+                        steam.remove();
+                    }, 2000);
+                });
+                
+                // Locomotive chimney steam
+                const chimneys = document.querySelectorAll('.locomotive-chimney');
+                chimneys.forEach(chimney => {
+                    const steam = document.createElement('div');
+                    steam.classList.add('steam');
+                    chimney.appendChild(steam);
+                    
+                    // Remove after animation completes
+                    setTimeout(() => {
+                        steam.remove();
+                    }, 2000);
+                });
+            }
+            
+            // Generate steam periodically
+            setInterval(createSteam, 500);
+            
+            // Add some dynamic gear rotation speed changes
+            function randomizeGearSpeeds() {
+                const gears = document.querySelectorAll('.gear');
+                
+                gears.forEach(gear => {
+                    const randomFactor = 0.8 + Math.random() * 0.4; // Random between 0.8 and 1.2
+                    const currentDuration = parseFloat(window.getComputedStyle(gear).animationDuration);
+                    
+                    if (!isNaN(currentDuration)) {
+                        gear.style.animationDuration = (currentDuration * randomFactor) + 's';
+                    }
+                });
+            }
+            
+            // Randomize gear speeds occasionally
+            setInterval(randomizeGearSpeeds, 8000);
+            
+            // Initialize with default throttle
+            updateAnimationSpeeds(0.75);
+        });
+    </script>
+</body>
+</html> 

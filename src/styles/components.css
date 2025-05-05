@@ -1,0 +1,51 @@
+/* Component styles to replace inline styles */
+
+/* Progress bars with dynamic widths */
+.progress-width-100 { width: 100%; }
+.progress-width-95 { width: 95%; }
+.progress-width-90 { width: 90%; }
+.progress-width-85 { width: 85%; }
+.progress-width-80 { width: 80%; }
+.progress-width-75 { width: 75%; }
+.progress-width-70 { width: 70%; }
+.progress-width-65 { width: 65%; }
+.progress-width-60 { width: 60%; }
+.progress-width-55 { width: 55%; }
+.progress-width-50 { width: 50%; }
+.progress-width-45 { width: 45%; }
+.progress-width-40 { width: 40%; }
+.progress-width-35 { width: 35%; }
+.progress-width-30 { width: 30%; }
+.progress-width-25 { width: 25%; }
+.progress-width-20 { width: 20%; }
+.progress-width-15 { width: 15%; }
+.progress-width-10 { width: 10%; }
+.progress-width-5 { width: 5%; }
+
+/* Dynamic heights */
+.height-auto { height: auto; }
+.height-full { height: 100%; }
+.height-40px { height: 40px; }
+.height-30px { height: 30px; }
+.height-20px { height: 20px; }
+.height-10px { height: 10px; }
+
+/* Margin positioning */
+.margin-top-auto { margin-top: auto; }
+
+/* Wheel component positioning */
+.transform-wheel-0 { transform: translate(-50%, -50%) rotate(0deg); }
+.transform-wheel-45 { transform: translate(-50%, -50%) rotate(45deg); }
+.transform-wheel-90 { transform: translate(-50%, -50%) rotate(90deg); }
+.transform-wheel-135 { transform: translate(-50%, -50%) rotate(135deg); }
+.transform-wheel-180 { transform: translate(-50%, -50%) rotate(180deg); }
+.transform-wheel-225 { transform: translate(-50%, -50%) rotate(225deg); }
+.transform-wheel-270 { transform: translate(-50%, -50%) rotate(270deg); }
+.transform-wheel-315 { transform: translate(-50%, -50%) rotate(315deg); }
+
+/* Animation delays */
+.delay-0 { animation-delay: 0s; }
+.delay-0-5 { animation-delay: 0.5s; }
+.delay-1 { animation-delay: 1s; }
+.delay-1-5 { animation-delay: 1.5s; }
+.delay-2 { animation-delay: 2s; } 

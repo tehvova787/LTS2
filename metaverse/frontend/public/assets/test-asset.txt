@@ -1,0 +1,2 @@
+This file is used to check if the assets directory exists.
+The metaverse will fall back to simple primitives if 3D assets are not available. 

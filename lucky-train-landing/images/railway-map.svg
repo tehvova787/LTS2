@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="200" viewBox="0 0 800 200">
+  <style>
+    .station { fill: #4CAF50; stroke: #FFFFFF; stroke-width: 3; }
+    .track { stroke: #4CAF50; stroke-width: 4; stroke-linecap: round; }
+    .track-dash { stroke: #4CAF50; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 10,10; }
+    .station-text { font-family: 'Montserrat', sans-serif; font-weight: bold; font-size: 14px; fill: #212121; text-anchor: middle; }
+    .label { font-family: 'Montserrat', sans-serif; font-size: 12px; fill: #757575; text-anchor: middle; }
+    .moon { fill: #FFC107; }
+    .train { fill: #4CAF50; }
+    .train-window { fill: #FFEB3B; }
+    .train-wheel { fill: #212121; }
+  </style>
+  
+  <!-- Tracks -->
+  <path class="track" d="M100,100 C200,50 300,150 400,100 C500,50 600,150 700,100" />
+  
+  <!-- Stations -->
+  <g class="station-1">
+    <circle class="station" cx="100" cy="100" r="15" />
+    <text class="station-text" x="100" y="105">1</text>
+    <text class="label" x="100" y="130">Купи TopCoin</text>
+  </g>
+  
+  <g class="station-2">
+    <circle class="station" cx="300" cy="100" r="15" />
+    <text class="station-text" x="300" y="105">2</text>
+    <text class="label" x="300" y="130">Возьми Билет</text>
+  </g>
+  
+  <g class="station-3">
+    <circle class="station" cx="500" cy="100" r="15" />
+    <text class="station-text" x="500" y="105">3</text>
+    <text class="label" x="500" y="130">Наслаждайся</text>
+    <text class="label" x="500" y="145">Поездкой</text>
+  </g>
+  
+  <g class="station-4">
+    <circle class="station" cx="700" cy="100" r="15" />
+    <text class="station-text" x="700" y="105">4</text>
+    <text class="label" x="700" y="130">Забери</text>
+    <text class="label" x="700" y="145">Награду</text>
+  </g>
+  
+  <!-- Moon at the end -->
+  <circle class="moon" cx="750" cy="70" r="30" />
+  <circle fill="#FFECB3" cx="740" cy="60" r="8" opacity="0.7" />
+  
+  <!-- Train on the Track -->
+  <g transform="translate(200, 80) scale(0.5)">
+    <rect class="train" x="0" y="0" width="80" height="40" rx="10" />
+    <rect class="train-window" x="15" y="10" width="15" height="15" rx="3" />
+    <rect class="train-window" x="50" y="10" width="15" height="15" rx="3" />
+    <rect class="train" x="-10" y="35" width="100" height="15" rx="5" />
+    <circle class="train-wheel" cx="15" cy="50" r="8" />
+    <circle class="train-wheel" cx="65" cy="50" r="8" />
+    
+    <!-- Smoke animation -->
+    <circle fill="#E0E0E0" opacity="0.7" cx="-15" cy="-5" r="7">
+      <animate attributeName="cy" values="-5;-15;-25" dur="2s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0.7;0.3;0" dur="2s" repeatCount="indefinite" />
+    </circle>
+    <circle fill="#E0E0E0" opacity="0.5" cx="-25" cy="-10" r="5">
+      <animate attributeName="cy" values="-10;-20;-30" dur="2.2s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0.5;0.2;0" dur="2.2s" repeatCount="indefinite" />
+    </circle>
+  </g>
+  
+  <!-- Coins near Reward Station -->
+  <g transform="translate(680, 60)">
+    <circle fill="#FFC107" cx="0" cy="0" r="8" stroke="#F57F17" stroke-width="1" />
+    <text x="0" y="4" font-family="Arial" font-size="10" font-weight="bold" text-anchor="middle" fill="#F57F17">$</text>
+  </g>
+  <g transform="translate(720, 40)">
+    <circle fill="#FFC107" cx="0" cy="0" r="8" stroke="#F57F17" stroke-width="1" />
+    <text x="0" y="4" font-family="Arial" font-size="10" font-weight="bold" text-anchor="middle" fill="#F57F17">$</text>
+  </g>
+  <g transform="translate(700, 30)">
+    <circle fill="#FFC107" cx="0" cy="0" r="8" stroke="#F57F17" stroke-width="1" />
+    <text x="0" y="4" font-family="Arial" font-size="10" font-weight="bold" text-anchor="middle" fill="#F57F17">$</text>
+  </g>
+</svg> 

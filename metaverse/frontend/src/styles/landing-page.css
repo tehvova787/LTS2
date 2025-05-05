@@ -1,0 +1,269 @@
+:root {
+  --primary-color: #6e42e5;
+  --secondary-color: #ff5678;
+  --background-color: #0a0b1e;
+  --card-background: rgba(30, 34, 59, 0.7);
+  --text-color: #f0f0f0;
+  --text-secondary: #b8b8d0;
+  --border-radius: 10px;
+  --spacing-unit: 20px;
+  --glow-effect: 0 0 15px rgba(110, 66, 229, 0.6);
+}
+
+.landing-page {
+  background-color: var(--background-color);
+  background-image: 
+    radial-gradient(circle at 20% 30%, rgba(110, 66, 229, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(255, 86, 120, 0.2) 0%, transparent 50%);
+  color: var(--text-color);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  overflow-x: hidden;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.landing-content {
+  max-width: 1200px;
+  width: 100%;
+  padding: var(--spacing-unit);
+}
+
+header {
+  text-align: center;
+  margin: 2rem 0 3rem;
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  background: linear-gradient(135deg, rgba(30, 34, 59, 0.7) 0%, rgba(30, 34, 59, 0.4) 100%);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: var(--glow-effect);
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+section {
+  margin: 3rem 0;
+}
+
+h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  position: relative;
+  color: var(--text-color);
+}
+
+h2::after {
+  content: '';
+  display: block;
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  margin: 1rem auto 0;
+  border-radius: 2px;
+}
+
+.news-section {
+  margin: 2rem 0 3rem;
+}
+
+.news-card {
+  background: linear-gradient(135deg, rgba(30, 34, 59, 0.7) 0%, rgba(30, 34, 59, 0.4) 100%);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-unit);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 20px rgba(110, 66, 229, 0.3);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.news-item {
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  background: rgba(255, 255, 255, 0.05);
+  margin-top: 1rem;
+}
+
+.news-text {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: var(--text-color);
+  text-align: center;
+  font-weight: 500;
+}
+
+.components-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--spacing-unit);
+}
+
+.component-card {
+  background: var(--card-background);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-unit);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  height: 100%;
+}
+
+.component-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--glow-effect);
+}
+
+.component-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.component-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+.component-card ul {
+  padding-left: 1.5rem;
+  margin-top: 1rem;
+}
+
+.component-card li {
+  margin-bottom: 0.5rem;
+  color: var(--text-secondary);
+}
+
+.features-container, .roadmap-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-unit);
+}
+
+.features-block, .roadmap-block {
+  background: var(--card-background);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-unit);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+}
+
+.features-block h3, .roadmap-block h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+.features-block ul, .roadmap-block ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  padding-left: 1.5rem;
+}
+
+.features-block li, .roadmap-block li {
+  color: var(--text-secondary);
+}
+
+.join-section {
+  text-align: center;
+  margin: 4rem 0;
+  padding: 2rem;
+  background: linear-gradient(135deg, rgba(30, 34, 59, 0.7) 0%, rgba(30, 34, 59, 0.4) 100%);
+  border-radius: var(--border-radius);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.join-section p {
+  max-width: 700px;
+  margin: 1rem auto 2rem;
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+button {
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.primary-button {
+  background: linear-gradient(135deg, var(--primary-color), #8a63ff);
+  color: white;
+  box-shadow: 0 4px 15px rgba(110, 66, 229, 0.4);
+}
+
+.primary-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(110, 66, 229, 0.6);
+}
+
+.secondary-button {
+  background: transparent;
+  color: var(--text-color);
+  border: 2px solid var(--primary-color);
+}
+
+.secondary-button:hover {
+  background: rgba(110, 66, 229, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+  
+  .components-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .features-block ul, .roadmap-block ul {
+    grid-template-columns: 1fr;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  button {
+    width: 100%;
+    max-width: 300px;
+  }
+} 
